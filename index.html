@@ -1,11 +1,10 @@
 ﻿<!DOCTYPE html>
-<html lang="zh-cn" charset="utf-8" ng-app="app">
+<html lang="zh-cn" ng-app="app">
 <head>
     <title>hell angular</title>
-    <script src="http://localhost.static/libs/bower_components/angular/angular.js"></script>
-	<script src="assets/app.js"></script>
-    <script src="assets/controllers/HellowController.js"></script>
-    <script src="assets/controllers/RepeatController.js"></script>
+	<meta charset="utf-8">
+
+    <script src="bower_components/angular/angular.js"></script>
 </head>
 <body>
 	<h3 ng-controller="HelloCtrl">{{sayhi}}</h3>
@@ -30,5 +29,9 @@
 			</li>
 		</ul>
 	</div>
+
+	<script src="app/main.js"></script>
+	<script src="app/ctrls/HellowController.js"></script>
+	<script src="app/ctrls/RepeatController.js"></script>
 </body>
 </html>
