@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn" ng-app="app">
+<head>
+    <title>hell angular</title>
+	<meta charset="utf-8">
+
+    <script src="bower_components/angular/angular.js"></script>
+</head>
+<body>
+	<h3 ng-controller="HelloController">{{sayhi}}</h3>
+
+    <div ng-controller="RepeatController">
+        <div ng-repeat="item in items">
+			<h5>{{item.title}}</h5>
+			<p>{{item.desc}}</p>
+			<input ng-model="item.size">
+			<span>{{item.size}}</span>
+			<button ng-click='removeItem($index)'>删除</button>
+		</div>
+    </div>
+	
+	<hr>
+	
+	<div ng-init="friends = [{name:'John', age:25}, {name:'Mary', age:28}]">
+		I have {{friends.length}} friends. They are:
+		<ul>
+			<li ng-repeat="friend in friends">
+				[{{$index + 1}}] {{friend.name}} who is {{friend.age}} years old.
+			</li>
+		</ul>
+	</div>
+
+	<h2>validate form</h2>
+	<form name="form" novalidate>
+		<input type="text" required>
+		<input type="email" name="email">
+		<input type="text" ng-minlength="5" />
+		<button type="submit" name="submit">submit</button>
+	</form>
+
+	<script src="app/main.js"></script>
+	<!--<script src="app/ctrls/HellowController.js"></script>-->
+	<script src="app/controllers/RepeatController.js"></script>
+</body>
+</html>

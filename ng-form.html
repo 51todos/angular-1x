@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn" ng-app="NgFormApp">
+<head>
+	<title>ng-form</title>
+	<meta charset="utf-8">
+
+	<script src="bower_components/angular/angular.js"></script>
+	<script src="bower_components/angular-messages/angular-messages.js"></script>
+</head>
+<body>
+
+<h3>ng-form</h3>
+
+<form novalidate
+	  name="signUpForm"
+	  ng-submit="signUpForm()"
+	  ng-controller="signUpController">
+
+	<label>Your name</label>
+	<input type="text" placeholder="Name" name="name"
+		   ng-model="signup.name"
+		   ng-minlength=3
+		   ng-maxlength=20 required />
+	<div class="error"
+		 ng-messages="signUpForm.name.$error"
+		 ng-messages-include="app/templates/errors.html">
+	</div>
+	<button type="submit">Submit</button>
+
+</form>
+
+<script src="app/ng-form-main.js"></script>
+</body>
+</html>

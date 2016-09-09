@@ -5,33 +5,20 @@
 	<meta charset="utf-8">
 
     <script src="bower_components/angular/angular.js"></script>
+	<script src="bower_components/angular-route/angular-route.js"></script>
+	<script src="bower_components/angular-messages/angular-messages.js"></script>
 </head>
 <body>
-	<h3 ng-controller="HelloController">{{sayhi}}</h3>
 
-    <div ng-controller="RepeatController">
-        <div ng-repeat="item in items">
-			<h5>{{item.title}}</h5>
-			<p>{{item.desc}}</p>
-			<input ng-model="item.size">
-			<span>{{item.size}}</span>
-			<button ng-click='removeItem($index)'>删除</button>
-		</div>
-    </div>
-	
-	<hr>
-	
-	<div ng-init="friends = [{name:'John', age:25}, {name:'Mary', age:28}]">
-		I have {{friends.length}} friends. They are:
-		<ul>
-			<li ng-repeat="friend in friends">
-				[{{$index + 1}}] {{friend.name}} who is {{friend.age}} years old.
-			</li>
-		</ul>
-	</div>
+<div><a href="/">Home</a></div>
+<div><a href="/ng-test">ng-test</a></div>
+<div><a href="/ng-form">ng-form</a></div>
+<div><a href="/ng-controller">ng-controller</a></div>
 
-	<script src="app/main.js"></script>
-	<!--<script src="app/ctrls/HellowController.js"></script>-->
-	<script src="app/ctrls/RepeatController.js"></script>
+<div class="view-animate-container">
+    <div ng-view class="view-animate"></div>
+</div>
+
+<script src="app/main.js"></script>
 </body>
 </html>
