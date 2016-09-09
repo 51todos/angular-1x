@@ -2,7 +2,7 @@
  * User hefeng
  * Date 2016/7/26
  */
-app.controller("RepeatCtrl", function($scope) {
+app.controller("RepeatController", function($scope) {
 	$scope.items = [
 		{
 			title: "ngSanitize",

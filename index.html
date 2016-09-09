@@ -7,9 +7,9 @@
     <script src="bower_components/angular/angular.js"></script>
 </head>
 <body>
-	<h3 ng-controller="HelloCtrl">{{sayhi}}</h3>
+	<h3 ng-controller="HelloController">{{sayhi}}</h3>
 
-    <div ng-controller="RepeatCtrl">
+    <div ng-controller="RepeatController">
         <div ng-repeat="item in items">
 			<h5>{{item.title}}</h5>
 			<p>{{item.desc}}</p>
@@ -31,7 +31,7 @@
 	</div>
 
 	<script src="app/main.js"></script>
-	<script src="app/ctrls/HellowController.js"></script>
+	<!--<script src="app/ctrls/HellowController.js"></script>-->
 	<script src="app/ctrls/RepeatController.js"></script>
 </body>
 </html>
