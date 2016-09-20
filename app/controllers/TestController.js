@@ -12,6 +12,7 @@ angular.module("App.TestPackage", [], function($provide) {
 		};
 	})
 })
+	// config
 	.config(function($provide) {
 		$provide.provider("TestServiceProvider2", function() {
 			this.$get = function() {
@@ -26,7 +27,36 @@ angular.module("App.TestPackage", [], function($provide) {
 			return "hello Richard";
 		})
 	})
-	.controller("TestController", function($scope, TestServiceProvider, TestServiceProvider2, TestFactoryProvider) {
+
+	// provider
+	// return string/object
+	.provider("testMyProvider", function() {
+		this.$get = function() {
+			return "test my provider"
+		}
+	})
+
+	// factory
+	// return string/object
+	.factory("testMyFactory", function() {
+		return "test my factory";
+	})
+
+	// service
+	// return object
+	.service("testMyService", function() {
+		return {
+			title: "test",
+			message: "my service"
+		};
+	})
+
+	// controller
+	.controller("TestController", function(
+		$scope,
+		testMyProvider, testMyFactory, testMyService,
+		TestServiceProvider, TestServiceProvider2, TestFactoryProvider
+	) {
 		$scope.items = [
 			{
 				title: "ngSanitize",
@@ -47,8 +77,12 @@ angular.module("App.TestPackage", [], function($provide) {
 			$scope.items.splice(index, 1);
 		};
 
+
+		console.log(testMyProvider);
+		console.log(testMyFactory);
+		console.log(testMyService.title, testMyService.message);
+
 		console.log(TestServiceProvider.title, TestServiceProvider.message);
 		console.log(TestServiceProvider2.title, TestServiceProvider2.message);
-		console.log(TestFactoryProvider);
 	})
 ;
