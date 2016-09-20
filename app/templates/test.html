@@ -1,0 +1,7 @@
+﻿<div ng-repeat="item in items">
+    <h5>{{item.title}}</h5>
+    <p>{{item.desc}}</p>
+    <input ng-model="item.size">
+    <span>{{item.size}}</span>
+    <button ng-click='removeItem($index)'>删除</button>
+</div>

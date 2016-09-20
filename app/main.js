@@ -2,8 +2,9 @@
  * User hefeng
  * Date 2016/7/26
  */
-angular.module("app", [
-	'ngRoute', 'ngMessages'
+var app = angular.module("App", [
+	'ngRoute', 'ngMessages',
+	'App.TestPackage'
 ])
 	/**
 	 * 配置app
@@ -15,12 +16,16 @@ angular.module("app", [
 		$routeProvider.when('/ng-controller', {templateUrl: 'ng-controller.html'});*/
 
 		$routeProvider
-			.when('/ng-test', {
-				templateUrl: 'ng-test.html',
-				controller: ''
+			.when('/home', {
+				templateUrl: 'app/templates/home.html',
+				controller: 'HomeController'
 			})
-			.when('/ng-form', {
-				templateUrl: 'ng-form.html',
+			.when('/test', {
+				templateUrl: 'app/templates/test.html',
+				controller: 'TestController'
+			})
+			.when('/form', {
+				templateUrl: 'app/templates/form.html',
 				controller: '',
 				resolve: {
 					// I will cause a 1 second delay
@@ -32,7 +37,7 @@ angular.module("app", [
 				}
 			})
 			.otherwise({
-				redirectTo: '/index.html'
+				redirectTo: '/home'
 			});
 	})
 
