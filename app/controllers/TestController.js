@@ -13,8 +13,14 @@ angular.module("App.TestPackage", [], function($provide) {
 	})
 })
 	// config
-	.config(function($provide) {
-		$provide.provider("TestServiceProvider2", function() {
+	.config(function(testMyProviderProvider, testMyFactoryProvider) {
+
+		//testMyProviderProvider.setName("Richard.he");
+
+		testMyProviderProvider.name = "Richard.he";
+		testMyFactoryProvider.name = "Richard.he";
+
+		/*$provide.provider("TestServiceProvider2", function() {
 			this.$get = function() {
 				return {
 					title: "hello2",
@@ -25,21 +31,34 @@ angular.module("App.TestPackage", [], function($provide) {
 
 		$provide.factory("TestFactoryProvider", function() {
 			return "hello Richard";
-		})
+		})*/
 	})
 
 	// provider
 	// return string/object
 	.provider("testMyProvider", function() {
+		this.name = "hefeng";
+
 		this.$get = function() {
-			return "test my provider"
-		}
+			var that = this;
+
+			return {
+				getName: function() {
+					return that.name;
+				},
+
+				setName: function(name) {
+					that.name = name;
+				}
+			}
+		};
 	})
 
 	// factory
 	// return string/object
 	.factory("testMyFactory", function() {
-		return "test my factory";
+		this.name = "testMyFactory";
+		return "test my factory" + this.name;
 	})
 
 	// service
@@ -54,8 +73,8 @@ angular.module("App.TestPackage", [], function($provide) {
 	// controller
 	.controller("TestController", function(
 		$scope,
-		testMyProvider, testMyFactory, testMyService,
-		TestServiceProvider, TestServiceProvider2, TestFactoryProvider
+		testMyProvider, testMyFactory, testMyService
+		//TestServiceProvider, TestServiceProvider2, TestFactoryProvider
 	) {
 		$scope.items = [
 			{
@@ -77,12 +96,12 @@ angular.module("App.TestPackage", [], function($provide) {
 			$scope.items.splice(index, 1);
 		};
 
-
-		console.log(testMyProvider);
+		testMyProvider.setName("he xiao feng");
+		console.log(testMyProvider.getName());
 		console.log(testMyFactory);
 		console.log(testMyService.title, testMyService.message);
 
-		console.log(TestServiceProvider.title, TestServiceProvider.message);
-		console.log(TestServiceProvider2.title, TestServiceProvider2.message);
+		//console.log(TestServiceProvider.title, TestServiceProvider.message);
+		//console.log(TestServiceProvider2.title, TestServiceProvider2.message);
 	})
 ;
