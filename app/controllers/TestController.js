@@ -32,6 +32,7 @@ angular.module("App.TestPackage", [], function($provide) {
 		$provide.factory("TestFactoryProvider", function() {
 			return "hello Richard";
 		})*/
+		
 	})
 
 	// provider
