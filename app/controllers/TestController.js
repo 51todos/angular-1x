@@ -3,14 +3,14 @@
  * Date 2016/7/26
  */
 angular.module("App.TestPackage", [], function($provide) {
-	$provide.provider("TestServiceProvider", function() {
+	/*$provide.provider("TestServiceProvider", function() {
 		this.$get = function() {
 			return {
 				title: "hello",
 				message: "Richard"
 			}
 		};
-	})
+	})*/
 })
 	// config
 	.config(function(testMyProviderProvider, testMyFactoryProvider) {
